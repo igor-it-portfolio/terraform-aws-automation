@@ -24,3 +24,8 @@ O código foi estruturado de forma modular (separação de responsabilidades) pa
 2. Execute `terraform init` para descarregar os plugins.
 3. Execute `terraform plan` para validar a infraestrutura.
 4. Execute `terraform apply` para criar os recursos de forma automatizada.
+
+---
+### 📝 Observações Técnicas
+- **AMI ID**: Atualmente o projeto utiliza um ID fixo (`ami-0e2c8ccd4e026682d`) para garantir a estabilidade do deploy na região us-east-1.
+- **Evolução Futura**: Nas próximas versões, o projeto será atualizado para utilizar um `data source`, permitindo que o Terraform busque automaticamente a imagem mais recente e torne o código multi-região.

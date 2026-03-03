@@ -1,31 +1,34 @@
-
-# CRIANDO A VPC (O TERRENO)
-# O cidr_block "10.0.0.0/16" define que teremos mais de 65 mil IPs disponíveis.
-resource "aws_vpc" "meu_terreno_isolado" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "VPC-Treinamento-Dia4"
-  }
-}
-
-# CRIANDO A SUBNET (O QUARTO COM JANELA)
-# vpc_id associa este quarto ao terreno que criamos acima.
+# CRIANDO A SUBNET
 resource "aws_subnet" "subnet_publica" {
-  vpc_id            = aws_vpc.meu_terreno_isolado.id
-  cidr_block        = "10.0.1.0/24" # Um pedaço menor do terreno
-  map_public_ip_on_launch = true    # Isso dá um IP público para quem morar aqui
+  vpc_id                  = aws_vpc.minha_primeira_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  map_public_ip_on_launch = true
 
   tags = {
-    Name = "Quarto-Com-Janela"
+    Name = "Subnet-Estudo-Igor"
   }
 }
 
-# CRIANDO O GATEWAY (A PORTA DA RUA)
+# CRIANDO O GATEWAY (INTERNET)
 resource "aws_internet_gateway" "porta_da_rua" {
-  vpc_id = aws_vpc.meu_terreno_isolado.id
+  vpc_id = aws_vpc.minha_primeira_vpc.id
 
   tags = {
-    Name = "Porta-Principal"
+    Name = "IGW-Estudo-Igor"
   }
+}
+
+# TABELA DE ROTAS (CAMINHO PARA A INTERNET)
+resource "aws_route_table" "rota_internet" {
+  vpc_id = aws_vpc.minha_primeira_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.porta_da_rua.id
+  }
+}
+
+resource "aws_route_table_association" "associacao" {
+  subnet_id      = aws_subnet.subnet_publica.id
+  route_table_id = aws_route_table.rota_internet.id
 }

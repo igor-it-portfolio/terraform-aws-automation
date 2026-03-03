@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Aqui pedimos para criar uma VPC (Rede)
+# Criando a VPC (O Terreno)
 resource "aws_vpc" "minha_primeira_vpc" {
   cidr_block = "10.0.0.0/16"
 
