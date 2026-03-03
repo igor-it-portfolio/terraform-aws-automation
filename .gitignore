@@ -1,0 +1,12 @@
+# Ignorar arquivos de estado do Terraform (Segredos!)
+*.tfstate
+*.tfstate.*
+
+# Ignorar a pasta de plugins (Muito pesada)
+.terraform/
+
+# Ignorar arquivos de variáveis sensíveis
+*.tfvars
+
+# Ignorar chaves privadas (Segurança máxima!)
+*.pem
