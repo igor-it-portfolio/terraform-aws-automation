@@ -25,7 +25,12 @@ O código foi estruturado de forma modular (separação de responsabilidades) pa
 3. Execute `terraform plan` para validar a infraestrutura.
 4. Execute `terraform apply` para criar os recursos de forma automatizada.
 
+## 📋 Pré-requisitos
+- Conta na AWS com credenciais configuradas.
+- Terraform instalado localmente.
+- AWS CLI instalado e configurado.
+
 ---
 ### 📝 Observações Técnicas
-- **AMI ID**: Atualmente o projeto utiliza um ID fixo (`ami-0e2c8ccd4e026682d`) para garantir a estabilidade do deploy na região us-east-1.
+- **AMI ID**: Atualmente o projeto utiliza um ID fixo (`"ami-0c7217cdde317cfec" # Ubuntu 22.04 LTS`) para garantir a estabilidade do deploy na região us-east-1.
 - **Evolução Futura**: Nas próximas versões, o projeto será atualizado para utilizar um `data source`, permitindo que o Terraform busque automaticamente a imagem mais recente e torne o código multi-região.
