@@ -1,5 +1,9 @@
 # Cloud Provisioning Automation: Infraestrutura como Código (IaC)
 
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+
 ## 🚀 Sobre o Projeto
 Este é um **projeto base de IaC com Terraform**. Este repositório serve como a minha fundação para automações na nuvem: a partir de agora, toda a minha infraestrutura será provisionada exclusivamente via código, eliminando configurações manuais e garantindo a padronização e escalabilidade dos ambientes.
 
